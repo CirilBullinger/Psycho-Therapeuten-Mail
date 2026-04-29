@@ -1,0 +1,39 @@
+{
+  "email": {
+    "smtp_server": "smtp.example.com",
+    "smtp_port": 465,
+    "imap_server": "imap.example.com",
+    "imap_port": 993,
+    "username": "your-email@example.com",
+    "password": "your-password-here",
+    "from_name": "Your Name",
+    "from_email": "your-email@example.com"
+  },
+  "campaign": {
+    "csv_file": "therapeuten_kampagne.csv",
+    "daily_limit": 50,
+    "delay_min_seconds": 30,
+    "delay_max_seconds": 90,
+    "days_between_email_1_and_2": 3,
+    "days_between_email_2_and_3": 5,
+    "send_hour_start": 9,
+    "send_hour_end": 11,
+    "anrede_type": "sie",
+    "prioritize_deutsch": true
+  },
+  "templates": {
+    "email_1_subject": "Lust auf mehr remote Therapie? {{VORNAME}} {{NACHNAME}}",
+    "email_1_template_sie": "templates/email_1_sie.txt",
+    "email_1_template_du": "templates/email_1_du.txt",
+    "email_2_subject": "Kurze Nachfrage – PsyCare",
+    "email_2_template_sie": "templates/email_2_sie.txt",
+    "email_2_template_du": "templates/email_2_du.txt",
+    "email_3_subject": "Letzte Mail von mir (versprochen)",
+    "email_3_template_sie": "templates/email_3_sie.txt",
+    "email_3_template_du": "templates/email_3_du.txt"
+  },
+  "logging": {
+    "log_file": "campaign_log.txt",
+    "verbose": true
+  }
+}

@@ -1,0 +1,7 @@
+# Betreff-Zeilen für die E-Mail-Kampagne
+
+EMAIL_1_SUBJECT=Mehr Klient:innen für Ihre Online-Praxis?
+
+EMAIL_2_SUBJECT=Kurze Nachfrage – PsyCare
+
+EMAIL_3_SUBJECT=Letzte Mail von mir (versprochen)
