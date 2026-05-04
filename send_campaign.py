@@ -190,10 +190,50 @@ class EmailCampaign:
         except:
             return False
 
+    def run_response_tracking(self):
+        """Führt Response-Tracking vor dem Versand aus"""
+        self.log("\n" + "=" * 70)
+        self.log("SCHRITT 1: RESPONSE-TRACKING")
+        self.log("=" * 70)
+
+        try:
+            import subprocess
+            import sys
+
+            result = subprocess.run(
+                [sys.executable, 'check_responses.py'],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+
+            # Zeige Output vom Response-Tracking
+            for line in result.stdout.strip().split('\n'):
+                if line.strip():
+                    print(line)
+
+            self.log("✅ Response-Tracking abgeschlossen")
+            return True
+
+        except subprocess.CalledProcessError as e:
+            self.log(f"⚠️  Response-Tracking hatte Fehler, mache trotzdem weiter...")
+            return False
+        except Exception as e:
+            self.log(f"⚠️  Response-Tracking Fehler: {str(e)}")
+            return False
+
     def run(self):
         """Führt die Kampagne aus"""
         self.log("=" * 70)
         self.log(f"E-Mail-Kampagne gestartet {'(DRY-RUN MODE)' if self.dry_run else ''}")
+        self.log("=" * 70)
+
+        # WICHTIG: Response-Tracking ZUERST ausführen
+        if not self.dry_run:
+            self.run_response_tracking()
+
+        self.log("\n" + "=" * 70)
+        self.log("SCHRITT 2: E-MAIL-VERSAND")
         self.log("=" * 70)
 
         # Lade CSV
