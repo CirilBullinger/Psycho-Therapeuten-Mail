@@ -7,9 +7,10 @@ Automatisiertes E-Mail-Kampagnen-System für die Rekrutierung von Psychotherapeu
 - 📧 **Multi-Stage E-Mail-Kampagne**: Automatischer Versand von bis zu 3 Follow-up E-Mails
 - 🎯 **Personalisierung**: Automatische Anrede-Generierung (Sie/Du-Form)
 - 🔒 **Rate Limiting**: Konfigurierbare Tageslimits und Verzögerungen
-- 📊 **Response Tracking**: Automatische Erkennung von Antworten via IMAP
+- 📊 **Response Tracking**: Automatische Erkennung von Antworten via IMAP - **LÄUFT AUTOMATISCH VOR JEDEM VERSAND**
 - 🌍 **Mehrsprachig**: Unterstützung für deutschsprachige Therapeuten
 - 🔄 **Daten-Merge**: Tools zum Zusammenführen mehrerer Therapeutenlisten
+- ✅ **Automatischer Schutz**: Therapeuten die geantwortet haben bekommen KEINE weiteren E-Mails
 
 ## Struktur
 
@@ -84,6 +85,8 @@ Führt automatisch aus:
 ```bash
 python3 send_campaign.py
 ```
+
+**WICHTIG:** Seit Version 2.0 führt `send_campaign.py` automatisch Response-Tracking aus, BEVOR E-Mails versendet werden. So wird sichergestellt, dass Therapeuten die geantwortet haben keine weiteren Reminder bekommen.
 
 ### Nur Responses prüfen
 
